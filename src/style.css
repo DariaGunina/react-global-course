@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'BioRhyme', serif;
+    src: url(https://fonts.gstatic.com);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header__title {
+    color: chocolate;
+    font-family: 'BioRhyme', serif;
+}
+
+.header__button {
+    padding: 10px 15px;
+    background-color: blanchedalmond;
+    border: none;
+    outline: none;
+    color: dimgrey;
+    font-family: 'BioRhyme', serif;
+}

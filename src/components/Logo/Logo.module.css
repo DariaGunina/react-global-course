@@ -1,0 +1,9 @@
+.logo {
+    color: var(--bright-color);
+    font-size: 24px;
+}
+
+.additionalColor {
+    font-weight: bold;
+    font-size: 28px;
+}

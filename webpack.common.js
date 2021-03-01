@@ -1,10 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './src/index.js',
+        app: './src/index.tsx',
     },
     output: {
         filename: '[name].bundle.js',
@@ -16,7 +15,7 @@ module.exports = {
         },
     },
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -28,8 +27,25 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
                 test: /\.css$/,
-                use: ["style-loader", "css-loader"]
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                mode: 'local',
+                                exportGlobals: true,
+                                localIdentName: '[path][local]',
+                            },
+                        },
+                    },
+                ],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -46,7 +62,7 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            ['@babel/preset-env', { targets: "defaults" }],
+                            ['@babel/preset-env', { targets: 'defaults' }],
                             '@babel/preset-react'
                         ]
                     }

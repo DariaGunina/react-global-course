@@ -1,24 +1,17 @@
+@import './colors.css';
+
 @font-face {
-    font-family: 'BioRhyme', serif;
+    font-family: 'Montserrat', sans-serif;
     src: url(https://fonts.gstatic.com);
 }
 
-.header {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+* {
+    box-sizing: border-box;
 }
 
-.header__title {
-    color: chocolate;
-    font-family: 'BioRhyme', serif;
-}
-
-.header__button {
-    padding: 10px 15px;
-    background-color: blanchedalmond;
-    border: none;
-    outline: none;
-    color: dimgrey;
-    font-family: 'BioRhyme', serif;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--main-color);
 }

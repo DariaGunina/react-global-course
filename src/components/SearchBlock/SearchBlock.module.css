@@ -1,0 +1,38 @@
+.searchBlock {
+    margin: 0 auto;
+    width: 1020px;
+}
+
+.title {
+    font-size: 46px;
+    text-transform: uppercase;
+    color: var(--main-color-text);
+    font-weight: 100;
+    letter-spacing: 2px
+}
+
+.input {
+    width: 800px;
+    background: rgba(66, 66, 66, 0.87);
+    border: none;
+    padding: 20px;
+    border-radius: 3px;
+    color: var(--accent-bright-color);
+    font-size: 18px;
+    font-weight: 100;
+    margin-right: 10px;
+    letter-spacing: 2px
+}
+
+.button {
+    width: 200px;
+    border: none;
+    padding: 20px;
+    border-radius: 3px;
+    background-color: var(--bright-color);
+    color: var(--main-color-text);
+    font-size: 18px;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 2px
+}

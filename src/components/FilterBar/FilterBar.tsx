@@ -7,7 +7,7 @@ export const FilterBar = () => {
 
     return (
         <div className={styles.filter}>
-            <p>Sort by</p>
+            <p className={styles.name}>Sort by</p>
             <div className={styles.icon}>
                 <select className={styles.dropdown}>
                     {dropdown.map((item) => (

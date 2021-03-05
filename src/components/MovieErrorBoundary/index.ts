@@ -1,0 +1,1 @@
+export {MovieErrorBoundary} from './MovieErrorBoundary';

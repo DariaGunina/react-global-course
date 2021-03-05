@@ -1,8 +1,8 @@
 import React from 'react';
-import {MovieList} from '../MovieList/MovieList';
-import {TabsBar} from '../TabsBar/TabsBar';
+import {TabsBar} from '../TabsBar';
+import {MovieErrorBoundary} from '../MovieErrorBoundary';
+import {MovieList} from '../MovieList';
 import {tabs} from '../mocks';
-import {MovieErrorBoundary} from '../MovieErrorBoundary/MovieErrorBoundary';
 
 import styles from './MovieContainer.module.css';
 

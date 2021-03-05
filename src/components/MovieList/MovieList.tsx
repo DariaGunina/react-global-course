@@ -1,5 +1,5 @@
 import React from 'react';
-import {MovieCard} from '../MovieCard/MovieCard';
+import {MovieCard} from '../MovieCard';
 import {movies} from '../mocks';
 
 import styles from './MovieList.module.css';
@@ -16,7 +16,6 @@ export const MovieList = () => {
                     key={movie.id}
                 />
             ))}
-
         </div>
     );
 };

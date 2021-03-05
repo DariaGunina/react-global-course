@@ -1,9 +1,9 @@
 import React from 'react';
-import {Tab} from '../Tab/Tab';
+import {FilterBar} from '../FilterBar';
+import { Tab } from '../Tab';
+import {Counter} from '../Сounter';
 
 import styles from './TabsBar.module.css';
-import {Counter} from '../Сounter/Counter';
-import {FilterBar} from "../FilterBar/FilterBar";
 
 export interface Tab {
     label: string;

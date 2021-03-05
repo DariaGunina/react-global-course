@@ -1,15 +1,14 @@
 import React from 'react';
-import {Header} from './components/Header/Header';
-import {MovieContainer} from './components/MovieContainer/MovieContainer';
-import {Footer} from './components/Footer/Footer';
-import {Logo} from './components/Logo/Logo';
+import {Header} from './components/Header';
+import {MovieContainer} from './components/MovieContainer';
+import {Footer} from './components/Footer';
 
 export const App = () => (
     <>
         <React.StrictMode>
             <Header />
             <MovieContainer />
-            <Footer children={<Logo />} />
+            <Footer />
         </React.StrictMode>
     </>
 );

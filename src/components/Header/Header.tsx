@@ -1,7 +1,7 @@
 import React from 'react';
-import {Button} from '../Button/Button';
-import {Logo} from '../Logo/Logo';
-import {SearchBlock} from '../SearchBlock/SearchBlock';
+import {Logo} from '../Logo';
+import {Button} from '../Button';
+import {SearchBlock} from '../SearchBlock';
 import Background from '../../assets/image.jpg';
 
 import styles from './Header.module.css';

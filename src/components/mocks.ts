@@ -9,7 +9,7 @@ export const movies = [
     {
         image: PulpImage,
         title: 'Pulp Fiction',
-        subtitle: 'Action & Advanture',
+        subtitle: 'Action & Adventure',
         year: 1995,
         id: 1
     },

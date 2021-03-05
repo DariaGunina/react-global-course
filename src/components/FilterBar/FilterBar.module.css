@@ -19,7 +19,7 @@
     cursor: pointer;
 }
 
-p {
+.name {
     color: var(--accent-bright-color);
     text-transform: uppercase;
     letter-spacing: 2px;

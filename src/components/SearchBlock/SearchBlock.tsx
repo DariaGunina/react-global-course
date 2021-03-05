@@ -1,5 +1,6 @@
 import React from 'react';
-import {Button} from '../Button/Button';
+import {Button} from '../Button';
+
 import styles from './SearchBlock.module.css';
 
 export const SearchBlock = () => {

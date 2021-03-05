@@ -1,15 +1,12 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
+import {Logo} from '../Logo';
 
 import styles from './Footer.module.css';
 
-interface FooterProps {
-    children: ReactNode;
-}
-
-export const Footer = ({children}: FooterProps) => {
+export const Footer = () => {
     return (
         <footer className={styles.footer}>
-            {children}
+            <Logo />
         </footer>
     );
 };

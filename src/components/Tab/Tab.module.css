@@ -1,0 +1,19 @@
+.tab {
+    display: none;
+}
+
+.label {
+    cursor: pointer;
+    background-color: var(--main-color);
+    position: relative;
+    margin-right: 20px;
+    padding: 20px;
+    color: var(--main-color-text);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.tab:checked + .label {
+     box-shadow: 0 3px 0 0px var(--bright-color);
+     z-index: 1;
+ }

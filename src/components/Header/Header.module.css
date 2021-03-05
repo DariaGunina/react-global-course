@@ -1,0 +1,26 @@
+.header {
+    height: 400px;
+    width: 100%;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-bottom: 10px solid var(--desaturated-color);
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--bright-color);
+    font-size: 18px;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 3px;
+    letter-spacing: 2px;
+}
+

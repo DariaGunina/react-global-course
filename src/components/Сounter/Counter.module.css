@@ -1,0 +1,15 @@
+.counter {
+    margin: 20px 0 20px 16px;
+    color: var(--main-color-text);
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.counter__additionalColor {
+    color: var(--main-color-text);
+    letter-spacing: 2px;
+    font-weight: 100;
+    font-size: 18px;
+    padding-left: 10px;
+}

@@ -1,0 +1,12 @@
+.tabsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tabs {
+    width: 100%;
+    border-bottom: 3px solid var(--desaturated-color);
+    box-shadow: 0 1px 0 0 var(--dark-color);
+    position: relative;
+    display: flex;
+}

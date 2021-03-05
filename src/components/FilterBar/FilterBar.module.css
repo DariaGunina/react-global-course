@@ -1,0 +1,26 @@
+.filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+    border-bottom: 3px solid var(--desaturated-color);
+    box-shadow: 0 1px 0 0 var(--dark-color);
+    padding-bottom: 7px;
+}
+
+.dropdown {
+    color: var(--main-color-text);
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    background-color: var(--main-color);
+    letter-spacing: 2px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.name {
+    color: var(--accent-bright-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}

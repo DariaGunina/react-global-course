@@ -1,0 +1,68 @@
+.form {
+    padding: 30px;
+}
+
+input::-moz-placeholder {
+    color: var(--accent-bright-color);
+}
+
+.input {
+    margin: 20px 0;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 100;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    color: var(--main-color-text);
+    background-color: rgba(66, 66, 66, 0.87);
+    letter-spacing: 2px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 100;
+    color: var(--bright-color);
+    letter-spacing: 2px;
+}
+.wrapperIcon {
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    fill: red;
+    top: 0;
+    right: 0;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+}
+
+.buttonReset {
+    border: 1px solid var(--bright-color);
+    color: var(--bright-color);
+    background-color: var(--main-color);
+    margin-right: 10px;
+    padding: 20px 40px;
+}
+
+.buttonSubmit {
+    color: var(--main-color-text);
+    font-weight: 100;
+    background-color: var(--bright-color);
+    padding: 20px 40px;
+}

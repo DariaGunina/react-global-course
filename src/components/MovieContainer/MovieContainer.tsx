@@ -6,6 +6,7 @@ import {tabs} from '../mocks';
 
 import styles from './MovieContainer.module.css';
 
+
 export const MovieContainer = () => {
     return (
         <div className={styles.container}>

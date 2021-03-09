@@ -1,0 +1,29 @@
+.multiSelect {
+    background-color: var(--accent-color);
+    margin: 20px 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.options {
+    background-color: var(--accent-color);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-radius: 3px;
+}
+
+.checkbox {
+    margin: 10px;
+}
+
+details {
+    color: var(--accent-bright-color);;
+    text-transform: none;
+}

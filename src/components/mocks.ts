@@ -88,3 +88,12 @@ export const dropdown = [
         label: 'Name'
     },
 ];
+
+export const initialValues = {
+    title: 'Moana',
+    date: '2021-01-10',
+    url: 'www.moana.com',
+    genre: ['Comedy'],
+    overview: 'Overview text goes here',
+    runtime: 'Runtime text goes here',
+};

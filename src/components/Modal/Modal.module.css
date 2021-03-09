@@ -1,0 +1,49 @@
+.modal {
+    background-color: var(--main-color);
+    width: 800px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    z-index: 1000;
+}
+
+.title {
+    color: var(--main-color-text);
+    font-size: 36px;
+    letter-spacing: 3px;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+.wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 1000;
+}
+
+.wrapperIcon {
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    fill: var(--main-color-text);
+    width: 20px;
+    height: 20px;
+}

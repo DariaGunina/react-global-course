@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from './MultiSelect.module.css';
+import {OPTIONS} from "../mocks";
 
 interface Props {
     value: any;
@@ -46,18 +47,15 @@ export const MultiSelect = ({onChange, initialValues}) => {
                     : 'Select Genre' }
                 </summary>
                 <div className={styles.options}>
-                    <CheckboxOption value='Crime' isChecked={genre.has('Crime')} onChange={onOptionChange}>
-                        Crime
-                    </CheckboxOption>
-                    <CheckboxOption value='Documentary' isChecked={genre.has('Documentary')} onChange={onOptionChange}>
-                        Documentary
-                    </CheckboxOption>
-                    <CheckboxOption value='Horror' isChecked={genre.has('Horror')} onChange={onOptionChange}>
-                        Horror
-                    </CheckboxOption>
-                    <CheckboxOption value='Comedy' isChecked={genre.has('Comedy')} onChange={onOptionChange}>
-                        Comedy
-                    </CheckboxOption>
+                    {OPTIONS.map(option =>
+                        <CheckboxOption
+                            key={option.value}
+                            value={option.value}
+                            isChecked={genre.has(option.isChecked)}
+                            onChange={onOptionChange}>
+                            {option.label}
+                        </CheckboxOption>
+                    )}
                 </div>
             </details>
         </div>

@@ -4,45 +4,24 @@ import {MultiSelect} from '../MultiSelect/';
 
 import styles from './Form.module.css';
 
-interface FormProps {
-    initialValues?: FormValues;
+export interface FormValues {
+    title?: string;
+    date?: string;
+    url?: string;
+    genre?: string[];
+    overview?: string;
+    runtime?: string;
 }
 
-interface FormValues {
-    title: string;
-    date: string;
-    url: string;
-    genre: string[];
-    overview: string;
-    runtime: string;
+interface FormProps {
+    values: FormValues;
+    setValues: (name, value) => void;
 }
 
 export const Form = ({
-    initialValues
+    values,
+    setValues,
 }: FormProps) => {
-    const [formData, setFormData] = React.useState<FormValues>(initialValues ?? {} as FormValues);
-
-    const handleTitleChange = (value) => {
-        setFormData(prevState => ({...prevState, title: value}))
-    };
-
-    const handleDateChange = (value) => {
-        setFormData(prevState => ({...prevState, date: value}))
-    };
-
-    const handleUrlChange = (value) => {
-        setFormData(prevState => ({...prevState, url: value}))
-    };
-
-    const handleOverviewChange = (value) => {
-        setFormData(prevState => ({...prevState, overview: value}))
-    };
-
-    const handleRuntimeChange = (value) => {
-        setFormData(prevState => ({...prevState, runtime: value}))
-    };
-
-    const onMultiSelectChange = (values) => setFormData(prevState => ({...prevState, genre: values}))
 
     return (
         <form className={styles.form}>
@@ -50,8 +29,8 @@ export const Form = ({
                 <label className={styles.label}>
                     Title
                     <input
-                        value={formData.title}
-                        onChange={e => handleTitleChange(e.target.value)}
+                        value={values.title}
+                        onChange={e => setValues('title', e.target.value)}
                         type='text'
                         placeholder='Title'
                         className={styles.input}
@@ -63,8 +42,8 @@ export const Form = ({
                 <label className={styles.label}>
                     Release Date
                     <input
-                        value={formData.date}
-                        onChange={e => handleDateChange(e.target.value)}
+                        value={values.date}
+                        onChange={e => setValues('date', e.target.value)}
                         type='date'
                         placeholder='Select Date'
                         className={styles.input}
@@ -76,8 +55,8 @@ export const Form = ({
                 <label className={styles.label}>
                     Movie URL
                     <input
-                        value={formData.url}
-                        onChange={e => handleUrlChange(e.target.value)}
+                        value={values.url}
+                        onChange={e => setValues('url', e.target.value)}
                         type='text'
                         placeholder='Movie URL here'
                         className={styles.input}
@@ -88,15 +67,15 @@ export const Form = ({
             <div className={styles.wrapper}>
                 <label className={styles.label}>
                     Genre
-                    <MultiSelect onChange={onMultiSelectChange} initialValues={formData?.genre}/>
+                    <MultiSelect onChange={values => setValues('genre', values)} initialValues={values.genre}/>
                 </label>
             </div>
             <div className={styles.wrapper}>
                 <label className={styles.label}>
                     Overview
                     <input
-                        value={formData.overview}
-                        onChange={e => handleOverviewChange(e.target.value)}
+                        value={values.overview}
+                        onChange={e => setValues('overview', e.target.value)}
                         type='text'
                         placeholder='Overview here'
                         className={styles.input}
@@ -108,8 +87,8 @@ export const Form = ({
                 <label className={styles.label}>
                     Runtime
                     <input
-                        value={formData.runtime}
-                        onChange={e => handleRuntimeChange(e.target.value)}
+                        value={values.runtime}
+                        onChange={e => setValues('runtime', e.target.value)}
                         type='text'
                         placeholder='Runtime here'
                         className={styles.input}
@@ -124,5 +103,3 @@ export const Form = ({
         </form>
     );
 };
-
-export default Form;

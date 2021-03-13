@@ -5,7 +5,7 @@ import {SearchBlock} from '../SearchBlock';
 import Background from '../../assets/image.jpg';
 import {Modal} from '../Modal';
 
-const Form = React.lazy(() => import('../Form/Form'));
+const AddMovieForm = React.lazy(() => import('../Form/AddMovieForm'));
 
 import styles from './Header.module.css';
 
@@ -26,7 +26,7 @@ export const Header = () => {
                     <>
                         <h1 className={styles.title}>Add Movie</h1>
                         <React.Suspense fallback='loading...'>
-                            <Form />
+                            <AddMovieForm />
                         </React.Suspense>
                     </>
                 </Modal>

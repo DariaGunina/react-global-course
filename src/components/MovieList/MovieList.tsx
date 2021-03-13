@@ -1,13 +1,13 @@
 import React from 'react';
 import {MovieCard} from '../MovieCard';
-import {movies} from '../mocks';
+import {MOVIES} from '../mocks';
 
 import styles from './MovieList.module.css';
 
 export const MovieList = () => {
     return (
         <div className={styles.list}>
-            {movies.map((movie) => (
+            {MOVIES.map((movie) => (
                 <MovieCard
                     image={movie.image}
                     title={movie.title}

@@ -2,9 +2,8 @@ import React from 'react';
 import CloseIcon from '../../assets/cancel.svg';
 import {Button} from '../Button';
 import {Modal} from '../Modal';
-import {initialValues} from '../mocks';
 
-const Form = React.lazy(() => import('../Form/Form'));
+const EditMovieForm = React.lazy(() => import('../Form/EditMovieForm'));
 
 import styles from './Menu.module.css';
 
@@ -35,7 +34,7 @@ export const Menu = ({closeMenu}:MenuProps) => {
                     <>
                         <h1 className={styles.title}>Edit Movie</h1>
                         <React.Suspense fallback='loading...'>
-                            <Form initialValues={initialValues} />
+                            <EditMovieForm />
                         </React.Suspense >
                     </>
                 </Modal>

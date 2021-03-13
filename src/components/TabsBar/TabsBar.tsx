@@ -2,6 +2,7 @@ import React from 'react';
 import {FilterBar} from '../FilterBar';
 import { Tab } from '../Tab';
 import {Counter} from '../Сounter';
+import {TABS} from '../mocks';
 
 import styles from './TabsBar.module.css';
 
@@ -20,7 +21,7 @@ export const TabsBar = ({tabs}: TabsBarProps) => {
         <>
             <div className={styles.tabsContainer}>
                 <div className={styles.tabs}>
-                    {tabs.map(({label, value, id}) => (
+                    {TABS.map(({label, value, id}) => (
                         <Tab
                             label={label}
                             value={value}

@@ -1,0 +1,79 @@
+.menu {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    background-color: var(--main-color);
+    width: 230px;
+    padding: 20px 0;
+    border-radius: 4px;
+}
+
+.iconContent {
+    position: relative;
+}
+
+.icon {
+    width: 8px;
+    height: 10px;
+    position: absolute;
+    right: 8px;
+    bottom: 0px;
+    fill: var(--main-color-text);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.button {
+    outline: none;
+    border: none;
+    background-color: var(--main-color);
+    padding: 10px;
+    color: var(--main-color-text);
+    font-size: 16px;
+    font-weight: 100;
+    display: flex;
+    justify-content: start;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--bright-color);
+}
+
+.button:active {
+    background-color: var(--active-color);
+}
+
+.title {
+    color: var(--main-color-text);
+    font-size: 36px;
+    letter-spacing: 3px;
+    font-weight: 100;
+    text-transform: uppercase;
+    margin-left: 30px;
+}
+
+.subtitle {
+    color: var(--main-color-text);
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 100;
+    margin: 40px 30px 40px;
+}
+
+.buttonConfirmWrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttonConfirm {
+    padding: 20px 40px;
+    background-color: var(--active-color);
+    color: var(--main-color-text);
+    text-transform: uppercase;
+    margin-right: 30px;
+}

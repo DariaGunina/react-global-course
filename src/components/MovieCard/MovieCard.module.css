@@ -11,11 +11,15 @@
 
 .menuIcon {
     opacity: 0;
-    width: 40px;
-    height: 40px;
+    width: 33px;
+    height: 33px;
     position: absolute;
     top: 20px;
     right: 30px;
+    fill: var(--main-color-text);
+    border-radius: 20px;
+    background-color: var(--main-color);
+    padding: 7px;
 }
 
 .image:hover > .menuIcon {

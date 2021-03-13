@@ -15,5 +15,4 @@
 
 .tab:checked + .label {
      box-shadow: 0 3px 0 0px var(--bright-color);
-     z-index: 1;
  }

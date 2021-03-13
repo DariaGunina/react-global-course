@@ -1,5 +1,6 @@
 import React from 'react';
-import MenuIcon from '../../assets/menu.jpg';
+import {Menu} from '../Menu';
+import MenuIcon from '../../assets/menu.svg';
 
 import styles from './MovieCard.module.css';
 
@@ -16,6 +17,8 @@ export const MovieCard = ({
     year,
     image
 }: MovieCardProps) => {
+    const [openMenu, setOpenMenu] = React.useState(false);
+
     return (
         <div className={styles.image}>
             <img className={styles.card} src={image} />
@@ -24,7 +27,17 @@ export const MovieCard = ({
                 <p className={styles.year}>{year}</p>
             </div>
             <p className={styles.subtitle}>{subtitle}</p>
-            <img src={MenuIcon} className={styles.menuIcon}/>
+            <MenuIcon
+                onClick={() => setOpenMenu(true)}
+                className={styles.menuIcon}
+            />
+            {
+                openMenu &&
+                <Menu
+                    className={styles.containerMenu}
+                    closeMenu={() => setOpenMenu(false)}
+                />
+            }
         </div>
     );
 };

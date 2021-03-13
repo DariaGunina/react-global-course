@@ -6,21 +6,35 @@
     border-bottom: 10px solid var(--desaturated-color);
 }
 
+.title {
+    color: var(--main-color-text);
+    font-size: 36px;
+    letter-spacing: 3px;
+    font-weight: 100;
+    text-transform: uppercase;
+    margin-left: 30px;
+}
+
 .content {
     display: flex;
     justify-content: space-between;
 }
 
-.button {
+button {
     border: none;
     outline: none;
     cursor: pointer;
-    color: var(--bright-color);
-    font-size: 18px;
     text-transform: uppercase;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px 20px;
     border-radius: 3px;
     letter-spacing: 2px;
+    font-weight: 100;
+    font-size: 18px;
 }
+
+.button {
+    color: var(--bright-color);
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+}
+
 

@@ -3,13 +3,15 @@ import React from 'react';
 interface ButtonProps {
     name: string;
     className?: string;
+    onClick?: () => void;
 }
 
 export const Button = ({
    name,
-   className
+   className,
+   onClick,
 }: ButtonProps) => {
     return (
-        <button className={className}>{name}</button>
+        <button className={className} onClick={onClick}>{name}</button>
     );
 };

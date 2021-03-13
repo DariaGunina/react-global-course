@@ -5,7 +5,7 @@ import AvengersImage from '../assets/avengers.png';
 import InceptionImage from '../assets/inception.jpg';
 import ReservoirImage from '../assets/reservoir_dogs.jpg';
 
-export const movies = [
+export const MOVIES = [
     {
         image: PulpImage,
         title: 'Pulp Fiction',
@@ -30,14 +30,14 @@ export const movies = [
     {
         image: AvengersImage,
         title: 'Avengers: War of Infinity',
-        subtitle: 'Action & Advanture',
+        subtitle: 'Action & Adventure',
         year: 2019,
         id: 4
     },
     {
         image: InceptionImage,
         title: 'Inception',
-        subtitle: 'Action & Advanture',
+        subtitle: 'Action & Adventure',
         year: 2010,
         id: 5
     },
@@ -50,7 +50,7 @@ export const movies = [
     },
 ];
 
-export const tabs = [
+export const TABS = [
     {
         label: 'All',
         value: 'All',
@@ -78,7 +78,7 @@ export const tabs = [
     },
 ];
 
-export const dropdown = [
+export const DROPDOWN = [
     {
         value: 'date',
         label: 'Release Date'
@@ -87,4 +87,36 @@ export const dropdown = [
         value: 'name',
         label: 'Name'
     },
+];
+
+export const INITIAL_VALUES = {
+    title: 'Moana',
+    date: '2021-01-10',
+    url: 'www.moana.com',
+    genre: ['Comedy'],
+    overview: 'Overview text goes here',
+    runtime: 'Runtime text goes here',
+};
+
+export const OPTIONS = [
+    {
+        value: 'Crime',
+        label: 'Crime',
+        isChecked: 'Crime'
+    },
+    {
+        value: 'Documentary',
+        label: 'Documentary',
+        isChecked: 'Documentary'
+    },
+    {
+        value: 'Horror',
+        label: 'Horror',
+        isChecked: 'Horror'
+    },
+    {
+        value: 'Comedy',
+        label: 'Comedy',
+        isChecked: 'Comedy'
+    }
 ];

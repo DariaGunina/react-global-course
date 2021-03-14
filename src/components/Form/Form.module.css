@@ -3,7 +3,7 @@
 }
 
 input::-moz-placeholder {
-    color: var(--accent-bright-color);
+    color: var(--accent-dark-color);
 }
 
 .input {

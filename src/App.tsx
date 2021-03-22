@@ -7,10 +7,8 @@ import {MovieProvider} from './components/MovieDetails';
 export const App = () =>
     <React.StrictMode>
         <MovieProvider>
-            <>
-                <Header />
-                <MovieContainer />
-            </>
+            <Header />
+            <MovieContainer />
         </MovieProvider>
         <Footer />
     </React.StrictMode>

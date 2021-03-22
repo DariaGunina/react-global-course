@@ -20,7 +20,7 @@
 }
 
 .name {
-    color: var(--accent-bright-color);
+    color: var(--accent-dark-color);
     text-transform: uppercase;
     letter-spacing: 2px;
 }

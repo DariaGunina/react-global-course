@@ -14,6 +14,7 @@ export const MovieList = () => {
                     subtitle={movie.subtitle}
                     year={movie.year}
                     key={movie.id}
+                    id={movie.id}
                 />
             ))}
         </div>

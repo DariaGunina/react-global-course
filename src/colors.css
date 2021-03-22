@@ -3,8 +3,10 @@
     --accent-color: #424242;
     --desaturated-color: #555555;
     --main-color-text: #ffffff;
+    --accent-color-text: #e6dede;
     --bright-color: #f65261;
-    --accent-bright-color: #9c9696;
+    --accent-dark-color: #9c9696;
     --active-color: #ef4857;
     --dark-color: #000000;
+    --green-color: #7fb859;
 }

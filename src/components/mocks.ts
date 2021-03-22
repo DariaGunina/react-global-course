@@ -120,3 +120,66 @@ export const OPTIONS = [
         isChecked: 'Comedy'
     }
 ];
+
+export const MOVIES_LIST = [
+    {
+        image: PulpImage,
+        title: 'Pulp Fiction',
+        subtitle: 'Action & Adventure',
+        year: 1995,
+        rating: 5,
+        time: '150 min',
+        descriptions: 'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption',
+        id: 1
+    },
+    {
+        image: BohemianImage,
+        title: 'Bohemian Rhapsody',
+        subtitle: 'Drama, Biography, Music',
+        year: 2018,
+        rating: 5,
+        time: '150 min',
+        descriptions: 'The story of the legendary British rock band Queen and lead singer Freddie Mercury, leading up to their famous performance at Live Aid (1985).',
+        id: 2
+    },
+    {
+        image: KillBillImage,
+        title: 'Kill Bill: Vol 2',
+        subtitle: 'Oscar winning Movie',
+        year: 2004,
+        rating: 5,
+        time: '150 min',
+        descriptions: 'The Bride continues her quest of vengeance against her former boss and lover Bill, the reclusive bouncer Budd, and the treacherous, one-eyed Elle.',
+        id: 3
+    },
+    {
+        image: AvengersImage,
+        title: 'Avengers: War of Infinity',
+        subtitle: 'Action & Adventure',
+        year: 2019,
+        rating: 5,
+        time: '150 min',
+        descriptions: 'The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.',
+        id: 4
+    },
+    {
+        image: InceptionImage,
+        title: 'Inception',
+        subtitle: 'Action & Adventure',
+        year: 2010,
+        rating: 5,
+        time: '150 min',
+        descriptions: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
+        id: 5
+    },
+    {
+        image: ReservoirImage,
+        title: 'Reservoir dogs',
+        subtitle: 'Oscar winning Movie',
+        year: 1991,
+        rating: 5,
+        time: '150 min',
+        descriptions: 'When a simple jewelry heist goes horribly wrong, the surviving criminals begin to suspect that one of them is a police informant.',
+        id: 6
+    },
+];

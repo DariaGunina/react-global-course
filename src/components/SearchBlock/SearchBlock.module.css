@@ -1,6 +1,7 @@
 .searchBlock {
-    margin: 0 auto;
-    width: 1020px;
+    margin: 32px auto;
+    width: 1200px;
+    padding: 47px;
 }
 
 .title {
@@ -17,7 +18,7 @@
     border: none;
     padding: 20px;
     border-radius: 3px;
-    color: var(--accent-bright-color);
+    color: var(--accent-dark-color);
     font-size: 18px;
     font-weight: 100;
     margin-right: 10px;

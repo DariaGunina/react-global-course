@@ -2,9 +2,13 @@ import React from 'react';
 
 import styles from './Logo.module.css';
 
-export const Logo = () => {
+interface LogoProps {
+    onClick?: () => void;
+}
+
+export const Logo = ({onClick}: LogoProps) => {
     return (
-        <div className={styles.logo}>
+        <div className={styles.logo} onClick={onClick}>
             <span className={styles.additionalColor}>
                 netflix
             </span>

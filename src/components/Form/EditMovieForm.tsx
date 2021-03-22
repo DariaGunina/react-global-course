@@ -1,19 +1,15 @@
 import React from 'react';
 import {
     Form,
-    FormValues
 } from './Form';
 import {INITIAL_VALUES} from '../mocks';
+import {useFormHandlers} from './useFormHandlers';
 
 export const EditMovieForm = () => {
-    const [values, setValues] = React.useState<FormValues>(INITIAL_VALUES);
-
-    const changeForm = (name, value) => {
-        setValues(prevState => ({...prevState, [name]: value}))
-    };
+    const {values, setValues} = useFormHandlers(INITIAL_VALUES);
 
     return (
-        <Form values={values} setValues={changeForm} />
+        <Form values={values} setValues={setValues} />
     );
 };
 

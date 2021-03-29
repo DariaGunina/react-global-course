@@ -3,7 +3,7 @@ import React from 'react';
 interface ButtonProps {
     name: string;
     className?: string;
-    onClick?: () => void;
+    onClick: (e) => void;
 }
 
 export const Button = ({
@@ -12,6 +12,9 @@ export const Button = ({
    onClick,
 }: ButtonProps) => {
     return (
-        <button className={className} onClick={onClick}>{name}</button>
+        <button className={className} onClick={(e) => {
+            e.preventDefault();
+            onClick(e);
+        }}>{name}</button>
     );
 };

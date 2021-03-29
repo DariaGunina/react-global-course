@@ -1,7 +1,9 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
 import CloseIcon from '../../assets/cancel.svg';
 import {Button} from '../Button';
 import {Modal} from '../Modal';
+import {deleteMovies} from '../../redux/action';
 
 const EditMovieForm = React.lazy(() => import('../Form/EditMovieForm'));
 
@@ -10,9 +12,11 @@ import styles from './Menu.module.css';
 interface MenuProps {
     closeMenu: () => void;
     className?: string;
+    id: number;
 }
 
-export const Menu = ({closeMenu}:MenuProps) => {
+export const Menu = ({closeMenu, id}: MenuProps) => {
+    const dispatch = useDispatch();
     const [openEditModal, setOpenEditModal] = React.useState(false);
     const [openDeleteModal, setOpenDeleteModal] = React.useState(false);
 
@@ -29,23 +33,32 @@ export const Menu = ({closeMenu}:MenuProps) => {
                 />
                 <Modal
                     open={openEditModal}
-                    onClose={() => setOpenEditModal(false)}
+                    onClose={() => {
+                        setOpenEditModal(false);
+                        closeMenu();
+                    }}
                 >
                     <>
                         <h1 className={styles.title}>Edit Movie</h1>
                         <React.Suspense fallback='loading...'>
-                            <EditMovieForm />
+                            <EditMovieForm id={id} />
                         </React.Suspense >
                     </>
                 </Modal>
                 <Button
                     className={styles.button}
                     name='Delete'
-                    onClick={() => setOpenDeleteModal(true)}
+                    onClick={() => {
+                        setOpenDeleteModal(true);
+                        closeMenu();
+                    }}
                 />
                 <Modal
                     open={openDeleteModal}
-                    onClose={() => setOpenDeleteModal(false)}
+                    onClose={() => {
+                        setOpenDeleteModal(false);
+                        closeMenu();
+                    }}
                 >
                     <div className={styles.content}>
                         <h1 className={styles.title}>Delete Movie</h1>
@@ -54,7 +67,10 @@ export const Menu = ({closeMenu}:MenuProps) => {
                             <Button
                                 className={styles.buttonConfirm}
                                 name='Confirm'
-                                onClick={() => setOpenDeleteModal(false)}
+                                onClick={() => {
+                                    deleteMovies(dispatch, id);
+                                    setOpenDeleteModal(false);
+                                }}
                             />
                         </div>
                     </div>

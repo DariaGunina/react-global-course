@@ -1,6 +1,6 @@
 import React from 'react';
-import {Menu} from '../Menu';
 import MenuIcon from '../../assets/menu.svg';
+import {Menu} from '../Menu';
 import {MovieContext} from '../MovieDetails';
 
 import styles from './MovieCard.module.css';
@@ -8,7 +8,7 @@ import styles from './MovieCard.module.css';
 interface MovieCardProps {
     title: string;
     subtitle: string;
-    year: number;
+    year: string;
     image: string;
     id: number;
 }
@@ -25,7 +25,12 @@ export const MovieCard = ({
 
     return (
         <div className={styles.image}>
-            <img className={styles.card} src={image} onClick={() => setActiveMovie(id)} />
+            <img
+                className={styles.card}
+                src={image}
+                onClick={() => setActiveMovie(id)}
+                alt='image'
+            />
             <div className={styles.info}>
                 <h1 className={styles.title}>{title}</h1>
                 <p className={styles.year}>{year}</p>
@@ -40,6 +45,7 @@ export const MovieCard = ({
                 <Menu
                     className={styles.containerMenu}
                     closeMenu={() => setOpenMenu(false)}
+                    id={id}
                 />
             }
         </div>

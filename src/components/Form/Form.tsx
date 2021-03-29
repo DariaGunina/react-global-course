@@ -7,20 +7,25 @@ import styles from './Form.module.css';
 export interface FormValues {
     title?: string;
     date?: string;
-    url?: string;
+    urlMovie?: string;
     genre?: string[];
     overview?: string;
-    runtime?: string;
+    runtime?: number;
+    id?: number;
 }
 
 interface FormProps {
     values: FormValues;
     setValues: (name, value) => void;
+    onSubmit: (e) => void;
+    onReset: () => void;
 }
 
 export const Form = ({
     values,
     setValues,
+    onSubmit,
+    onReset
 }: FormProps) => {
 
     return (
@@ -55,8 +60,8 @@ export const Form = ({
                 <label className={styles.label}>
                     Movie URL
                     <input
-                        value={values.url}
-                        onChange={e => setValues('url', e.target.value)}
+                        value={values.urlMovie}
+                        onChange={e => setValues('urlMovie', e.target.value)}
                         type='text'
                         placeholder='Movie URL here'
                         className={styles.input}
@@ -89,7 +94,7 @@ export const Form = ({
                     <input
                         value={values.runtime}
                         onChange={e => setValues('runtime', e.target.value)}
-                        type='text'
+                        type='number'
                         placeholder='Runtime here'
                         className={styles.input}
                         required
@@ -97,8 +102,8 @@ export const Form = ({
                 </label>
             </div>
             <div className={styles.buttonContainer}>
-                <Button className={styles.buttonReset} name='Reset' />
-                <Button className={styles.buttonSubmit} name='Submit' />
+                <Button className={styles.buttonReset} name='Reset' onClick={onReset} />
+                <Button className={styles.buttonSubmit} name='Submit' onClick={onSubmit} />
             </div>
         </form>
     );

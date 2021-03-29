@@ -1,12 +1,13 @@
 .content {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     padding: 30px;
     width: 1200px;
     margin: 0 auto;
 }
 
-.image {
+.poster{
     width: 200px;
     height: 280px;
     margin-right: 40px;
@@ -26,7 +27,7 @@
     margin-right: 20px;
 }
 
-.rating {
+.vote {
     border-radius: 40px;
     border: 1px solid var(--main-color-text);
     font-size: 24px;
@@ -37,7 +38,7 @@
     color: var(--green-color);
 }
 
-.text {
+.overview {
     color: var(--accent-color-text);
     font-size: 16px;
     letter-spacing: 2px;
@@ -46,7 +47,7 @@
     line-height: 24px;
 }
 
-.data {
+.date {
     display: flex;
     justify-content: space-between;
     width: 250px;

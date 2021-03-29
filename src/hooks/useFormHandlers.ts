@@ -1,5 +1,5 @@
-import React from "react";
-import {FormValues} from "./Form";
+import React from 'react';
+import {FormValues} from '../components/Form/Form';
 
 export const useFormHandlers = (initialValues: FormValues) => {
     const [values, setValues] = React.useState<FormValues>(initialValues);
@@ -11,5 +11,6 @@ export const useFormHandlers = (initialValues: FormValues) => {
     return {
         values,
         setValues: changeForm,
+        reset: () => setValues(initialValues),
     };
 };

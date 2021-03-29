@@ -5,11 +5,15 @@ import styles from './Tab.module.css';
 interface TabProps {
     label: string;
     value: string;
+    onChange: (e) => void;
+    checked: boolean;
 }
 
 export const Tab = ({
     label,
     value,
+    checked,
+    onChange,
 }: TabProps) => {
     return (
         <label>
@@ -17,8 +21,9 @@ export const Tab = ({
                 type='radio'
                 name='radioTab'
                 value={value}
-                checked
+                checked={checked}
                 className={styles.tab}
+                onChange={onChange}
             />
             <div className={styles.label}>{label}</div>
         </label>

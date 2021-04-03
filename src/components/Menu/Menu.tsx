@@ -20,6 +20,11 @@ export const Menu = ({closeMenu, id}: MenuProps) => {
     const [openEditModal, setOpenEditModal] = React.useState(false);
     const [openDeleteModal, setOpenDeleteModal] = React.useState(false);
 
+    const onCloseModal = (setOpenModal: () => void) => {
+        setOpenModal();
+        closeMenu();
+    };
+
     return (
         <div className={styles.menu}>
             <div className={styles.iconContent}>
@@ -33,10 +38,7 @@ export const Menu = ({closeMenu, id}: MenuProps) => {
                 />
                 <Modal
                     open={openEditModal}
-                    onClose={() => {
-                        setOpenEditModal(false);
-                        closeMenu();
-                    }}
+                    onClose={() => onCloseModal(() => setOpenEditModal(false))}
                 >
                     <>
                         <h1 className={styles.title}>Edit Movie</h1>
@@ -50,15 +52,11 @@ export const Menu = ({closeMenu, id}: MenuProps) => {
                     name='Delete'
                     onClick={() => {
                         setOpenDeleteModal(true);
-                        closeMenu();
                     }}
                 />
                 <Modal
                     open={openDeleteModal}
-                    onClose={() => {
-                        setOpenDeleteModal(false);
-                        closeMenu();
-                    }}
+                    onClose={() => onCloseModal(() => setOpenDeleteModal(false))}
                 >
                     <div className={styles.content}>
                         <h1 className={styles.title}>Delete Movie</h1>

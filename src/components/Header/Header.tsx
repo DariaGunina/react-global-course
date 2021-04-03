@@ -33,8 +33,8 @@ export const Header = () => {
     const {activeMovie, setActiveMovie} = React.useContext(MovieContext);
     const {moviesList} = useSelector<RootReducer, MovieState>((state) => state.movies);
 
-    const getMovieById = React.useMemo(() => {
-       return moviesList?.find(item => item.id === activeMovie);
+    const movieById = React.useMemo(() => {
+       return moviesList.find(item => item.id === activeMovie);
     },[activeMovie]);
 
     return (
@@ -58,15 +58,15 @@ export const Header = () => {
                 }
             </div>
             {
-                activeMovie && getMovieById
+                activeMovie && movieById
                     ? <MovieDetails
-                        title={getMovieById.title}
-                        runtime={getMovieById.runtime}
-                        overview={getMovieById.overview}
-                        date={getMovieById.release_date}
-                        vote={getMovieById.vote_average}
-                        poster={getMovieById.poster_path}
-                        tagline={getMovieById.tagline}
+                        title={movieById.title}
+                        runtime={movieById.runtime}
+                        overview={movieById.overview}
+                        date={movieById.release_date}
+                        vote={movieById.vote_average}
+                        poster={movieById.poster_path}
+                        tagline={movieById.tagline}
                         />
                     : <SearchBlock onSearch={onSearch} value={search} setValue={e => setSearch(e.target.value)} />
             }

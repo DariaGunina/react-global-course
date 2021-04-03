@@ -18,19 +18,9 @@ export interface MovieState {
 }
 
 export const MovieReducer = (state = initialState, action: ActionType): MovieState => {
-    const deleteItem = (list, id) => {
-        if(list) {
-            return list.filter((movie) => movie.id !== id);
-        }
-        return list;
-    };
+    const deleteItem = (list, id) => list.filter((movie) => movie.id !== id);
 
-    const editItem = (list, editedMovie) => {
-        if(list) {
-            return list.map(item => item.id === editedMovie.id ? editedMovie : item)
-        }
-        return list;
-    };
+    const editItem = (list, editedMovie) => list.map(item => item.id === editedMovie.id ? editedMovie : item);
 
     switch (action.type) {
         case GET_MOVIES:

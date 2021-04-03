@@ -15,7 +15,7 @@ export const MovieContainer = () => {
 
     React.useEffect(() => {
         getMovies(dispatch, {filter, sort, search});
-    }, [sort, filter]);
+    }, [sort, filter, search]);
 
     return (
         <div className={styles.container}>

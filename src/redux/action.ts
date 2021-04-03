@@ -60,16 +60,16 @@ export const createMovies = (dispatch: Dispatch, {
 }: FormValues) => {
     let url = `http://localhost:4000/movies`;
     const data = JSON.stringify({
-        title: title,
+        title,
         release_date: date,
         poster_path: urlMovie,
         genres: genre,
-        overview: overview,
+        overview,
         runtime: Number(runtime),
     });
     fetch(url, {
         method: 'POST',
-        headers: headers,
+        headers,
         body: data,
     })
         .then(res => res.json())
@@ -94,18 +94,18 @@ export const updateMovie = (dispatch: Dispatch, {
 }: FormValues) => {
     let url = `http://localhost:4000/movies`;
     const data = JSON.stringify({
-        title: title,
+        title,
         release_date: date,
         poster_path: urlMovie,
         genres: genre,
-        overview: overview,
-        runtime: runtime,
-        id: id,
+        overview,
+        runtime,
+        id,
     });
 
     fetch(url, {
         method: 'PUT',
-        headers: headers,
+        headers,
         body: data,
     })
         .then(res => res.json())

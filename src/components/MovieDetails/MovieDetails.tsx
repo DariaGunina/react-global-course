@@ -13,7 +13,7 @@ interface MovieDetailsProps {
 }
 
 export const MovieDetails = ({
-    poster ,
+    poster,
     title,
     tagline,
     vote,

@@ -10,7 +10,7 @@ export const MovieList = () => {
 
     return (
         <div className={styles.list}>
-            {moviesList?.map((movie) =>
+            {moviesList.map((movie) =>
                 <MovieCard
                     image={movie.poster_path}
                     title={movie.title}

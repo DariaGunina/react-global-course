@@ -2,12 +2,17 @@ import React from 'react';
 import {Logo} from '../Logo';
 import {Button} from '../Button';
 import {SearchBlock} from '../SearchBlock';
-import Background from '../../assets/image.jpg';
 import {Modal} from '../Modal';
-import {MOVIES_LIST} from '../mocks';
 import {MovieContext} from '../MovieDetails';
 import {MovieDetails} from '../MovieDetails';
+import Background from '../../assets/image.jpg';
 import SearchIcon from '../../assets/search.svg';
+import {useDispatch, useSelector} from 'react-redux';
+import {RootReducer} from '../../store';
+import {MovieState} from '../../redux/reducer';
+import {getMovies} from '../../redux/action';
+import {useNonNullContext} from '../../hooks/useNonNullContext';
+import {FiltersContext} from '../MovieContainer/FiltersProvider';
 
 const AddMovieForm = React.lazy(() => import('../Form/AddMovieForm'));
 
@@ -19,11 +24,17 @@ const BackgroundStyle = {
 };
 
 export const Header = () => {
+    const dispatch = useDispatch();
+    const {search, setSearch, sort, filter} = useNonNullContext(FiltersContext);
+
+    const onSearch = () => getMovies(dispatch, {search, sort, filter});
+
     const [isOpenModal, setIsOpenModal] = React.useState(false);
     const {activeMovie, setActiveMovie} = React.useContext(MovieContext);
+    const {moviesList} = useSelector<RootReducer, MovieState>((state) => state.movies);
 
-    const getMovieById = React.useMemo(() => {
-       return MOVIES_LIST.find(item => item.id === activeMovie);
+    const movieById = React.useMemo(() => {
+       return moviesList.find(item => item.id === activeMovie);
     },[activeMovie]);
 
     return (
@@ -46,7 +57,19 @@ export const Header = () => {
                         </>
                 }
             </div>
-            {activeMovie && getMovieById ? <MovieDetails {...getMovieById} /> : <SearchBlock />}
+            {
+                activeMovie && movieById
+                    ? <MovieDetails
+                        title={movieById.title}
+                        runtime={movieById.runtime}
+                        overview={movieById.overview}
+                        date={movieById.release_date}
+                        vote={movieById.vote_average}
+                        poster={movieById.poster_path}
+                        tagline={movieById.tagline}
+                        />
+                    : <SearchBlock onSearch={onSearch} value={search} setValue={e => setSearch(e.target.value)} />
+            }
         </header>
     );
 };

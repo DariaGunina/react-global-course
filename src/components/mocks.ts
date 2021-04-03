@@ -95,7 +95,7 @@ export const INITIAL_VALUES = {
     url: 'www.moana.com',
     genre: ['Comedy'],
     overview: 'Overview text goes here',
-    runtime: 'Runtime text goes here',
+    runtime: 123,
 };
 
 export const OPTIONS = [

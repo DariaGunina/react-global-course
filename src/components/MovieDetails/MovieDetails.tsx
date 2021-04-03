@@ -3,38 +3,38 @@ import React from 'react';
 import styles from './MovieDetails.module.css';
 
 interface MovieDetailsProps {
-    image: string;
+    poster: string;
     title: string;
-    subtitle: string;
-    rating: number;
-    year: number;
-    time: string;
-    descriptions: string;
+    tagline: string;
+    vote: number;
+    date: string;
+    runtime: number;
+    overview: string;
 }
 
 export const MovieDetails = ({
-    image,
+    poster,
     title,
-    subtitle,
-    rating,
-    year,
-    time,
-    descriptions
+    tagline,
+    vote,
+    date,
+    runtime,
+    overview
 }: MovieDetailsProps) => {
     return (
         <div className={styles.content}>
-            <img className={styles.image} src={image} />
+            <img className={styles.poster} src={poster} alt='poster' />
             <div>
                 <div className={styles.info}>
                     <h1 className={styles.title}>{title}</h1>
-                    <div className={styles.rating}>{rating}</div>
+                    <div className={styles.vote}>{vote}</div>
                 </div>
-                <p className={styles.text}>{subtitle}</p>
-                <div className={styles.data}>
-                    <span>{year}</span>
-                    <span>{time}</span>
+                <p className={styles.tagline}>{tagline}</p>
+                <div className={styles.date}>
+                    <span>{date}</span>
+                    <span>{runtime}</span>
                 </div>
-                <p className={styles.text}>{descriptions}</p>
+                <p className={styles.overview}>{overview}</p>
             </div>
         </div>
     );

@@ -52,18 +52,18 @@ export const getMovies = (dispatch: Dispatch, {
 
 export const createMovies = (dispatch: Dispatch, {
     title,
-    date,
-    urlMovie,
-    genre,
+    release_date,
+    poster_path,
+    genres,
     overview,
     runtime
 }: FormValues) => {
     let url = `http://localhost:4000/movies`;
     const data = JSON.stringify({
         title,
-        release_date: date,
-        poster_path: urlMovie,
-        genres: genre,
+        release_date,
+        poster_path,
+        genres,
         overview,
         runtime: Number(runtime),
     });
@@ -85,9 +85,9 @@ export const createMovies = (dispatch: Dispatch, {
 
 export const updateMovie = (dispatch: Dispatch, {
     title,
-    date,
-    urlMovie,
-    genre,
+    release_date,
+    poster_path,
+    genres,
     overview,
     runtime,
     id
@@ -95,9 +95,9 @@ export const updateMovie = (dispatch: Dispatch, {
     let url = `http://localhost:4000/movies`;
     const data = JSON.stringify({
         title,
-        release_date: date,
-        poster_path: urlMovie,
-        genres: genre,
+        release_date,
+        poster_path,
+        genres,
         overview,
         runtime,
         id,

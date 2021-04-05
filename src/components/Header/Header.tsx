@@ -1,6 +1,6 @@
 import React from 'react';
 import {Logo} from '../Logo';
-import {Button} from '../Button';
+import {Button, BUTTON_TYPES} from '../Button';
 import {SearchBlock} from '../SearchBlock';
 import {Modal} from '../Modal';
 import {MovieContext} from '../MovieDetails';
@@ -43,14 +43,22 @@ export const Header = () => {
                 <Logo onClick={() => setActiveMovie(null)} />
                 {
                     activeMovie ?
-                        <SearchIcon className={styles.search} onClick={() => setActiveMovie(null)} /> :
+                        <SearchIcon
+                            className={styles.search}
+                            onClick={() => setActiveMovie(null)}
+                        /> :
                         <>
-                            <Button className={styles.button} name='+ Add Movie' onClick={() => setIsOpenModal(true)} />
+                            <Button
+                                className={styles.button}
+                                name='+ Add Movie'
+                                onClick={() => setIsOpenModal(true)}
+                                type={BUTTON_TYPES.BUTTON}
+                            />
                             <Modal open={isOpenModal} onClose={() => setIsOpenModal(false)}>
                                 <>
                                     <h1 className={styles.title}>Add Movie</h1>
                                     <React.Suspense fallback='loading...'>
-                                        <AddMovieForm />
+                                        <AddMovieForm onClose={() => setIsOpenModal(false)} />
                                     </React.Suspense>
                                 </>
                             </Modal>

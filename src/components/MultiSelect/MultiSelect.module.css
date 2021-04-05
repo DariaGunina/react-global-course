@@ -2,9 +2,6 @@
     background-color: var(--accent-color);
     margin: 20px 0;
     padding: 20px;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
     outline: none;
     border: none;
     cursor: pointer;

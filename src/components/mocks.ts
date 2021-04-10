@@ -98,29 +98,6 @@ export const INITIAL_VALUES = {
     runtime: 123,
 };
 
-export const OPTIONS = [
-    {
-        value: 'Crime',
-        label: 'Crime',
-        isChecked: 'Crime'
-    },
-    {
-        value: 'Documentary',
-        label: 'Documentary',
-        isChecked: 'Documentary'
-    },
-    {
-        value: 'Horror',
-        label: 'Horror',
-        isChecked: 'Horror'
-    },
-    {
-        value: 'Comedy',
-        label: 'Comedy',
-        isChecked: 'Comedy'
-    }
-];
-
 export const MOVIES_LIST = [
     {
         image: PulpImage,

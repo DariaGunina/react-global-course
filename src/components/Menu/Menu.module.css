@@ -17,7 +17,7 @@
     height: 10px;
     position: absolute;
     right: 8px;
-    bottom: 0px;
+    bottom: 0;
     fill: var(--main-color-text);
 }
 
@@ -54,7 +54,6 @@
     letter-spacing: 3px;
     font-weight: 100;
     text-transform: uppercase;
-    margin-left: 30px;
 }
 
 .subtitle {

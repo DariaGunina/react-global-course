@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from '../Button';
+import {Button, BUTTON_TYPES} from '../Button';
 
 import styles from './SearchBlock.module.css';
 
@@ -16,8 +16,19 @@ export const SearchBlock = ({
     return (
         <div className={styles.searchBlock}>
             <h1 className={styles.title}>Find your movie</h1>
-            <input className={styles.input} value={value} onChange={setValue} type='text' placeholder='What do you want to watch?' />
-            <Button className={styles.button} name='Search' onClick={onSearch} />
+            <input
+                className={styles.input}
+                value={value}
+                onChange={setValue}
+                type='text'
+                placeholder='What do you want to watch?'
+            />
+            <Button
+                className={styles.button}
+                name='Search'
+                type={BUTTON_TYPES.BUTTON}
+                onClick={onSearch}
+            />
         </div>
     );
 };

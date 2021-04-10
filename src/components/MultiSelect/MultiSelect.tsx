@@ -1,23 +1,22 @@
 import React from 'react';
+import {Field} from 'formik';
+import {OPTIONS} from './constants';
 
 import styles from './MultiSelect.module.css';
-import {OPTIONS} from "../mocks";
 
 interface Props {
+    name: string
     value: any;
-    isChecked: boolean;
-    onChange: (value) => void;
     children: React.ReactNode;
 }
 
-export const CheckboxOption = ({value, isChecked, onChange, children}: Props) => {
+export const CheckboxOption = ({name, value, children}: Props) => {
     return (
         <label>
-            <input
+            <Field
+                name={name}
                 type='checkbox'
                 value={value}
-                checked={isChecked}
-                onChange={(e) => onChange(value)}
                 className={styles.checkbox}
             />
             {children}
@@ -25,39 +24,29 @@ export const CheckboxOption = ({value, isChecked, onChange, children}: Props) =>
     );
 };
 
-export const MultiSelect = ({onChange, initialValues}) => {
-    const [genre, setGenre] = React.useState(new Set<string>(initialValues ?? []));
-
-    React.useEffect(() => {
-        onChange(Array.from(genre))
-    }, [genre]);
-
-    const onOptionChange = (value: string) => {
-        const newSet = new Set(genre);
-        newSet.has(value) ? newSet.delete(value) : newSet.add(value);
-        setGenre(newSet)
-    };
+export const MultiSelect = ({values, name, error}) => {
 
     return (
-        <div>
+        <>
             <details>
-                <summary className={styles.multiSelect}>
-                    { genre.size > 0
-                    ? Array.from(genre).join(', ')
-                    : 'Select Genre' }
+                <summary
+                    className={styles.multiSelect}
+                    style={{ border: error ? '2px solid var(--bright-color)' : '' }}
+                >
+                    { values?.length > 0 ? values?.join(', ') : 'Select Genre' }
                 </summary>
                 <div className={styles.options}>
-                    {OPTIONS.map(option =>
+                    {OPTIONS.map(({value, label}) =>
                         <CheckboxOption
-                            key={option.value}
-                            value={option.value}
-                            isChecked={genre.has(option.isChecked)}
-                            onChange={onOptionChange}>
-                            {option.label}
+                            name={name}
+                            key={value}
+                            value={value}
+                        >
+                            {label}
                         </CheckboxOption>
                     )}
                 </div>
             </details>
-        </div>
+        </>
     );
 };

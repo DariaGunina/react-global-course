@@ -1,13 +1,12 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 import CloseIcon from '../../assets/cancel.svg';
-import {Button} from '../Button';
+import {Button, BUTTON_TYPES} from '../Button';
 import {Modal} from '../Modal';
 import {deleteMovies} from '../../redux/action';
+import styles from './Menu.module.css';
 
 const EditMovieForm = React.lazy(() => import('../Form/EditMovieForm'));
-
-import styles from './Menu.module.css';
 
 interface MenuProps {
     closeMenu: () => void;
@@ -35,6 +34,7 @@ export const Menu = ({closeMenu, id}: MenuProps) => {
                     className={styles.button}
                     name='Edit'
                     onClick={() => setOpenEditModal(true)}
+                    type={BUTTON_TYPES.BUTTON}
                 />
                 <Modal
                     open={openEditModal}
@@ -43,13 +43,14 @@ export const Menu = ({closeMenu, id}: MenuProps) => {
                     <>
                         <h1 className={styles.title}>Edit Movie</h1>
                         <React.Suspense fallback='loading...'>
-                            <EditMovieForm id={id} />
+                            <EditMovieForm onClose={() => onCloseModal(() => setOpenEditModal(false))} id={id} />
                         </React.Suspense >
                     </>
                 </Modal>
                 <Button
                     className={styles.button}
                     name='Delete'
+                    type={BUTTON_TYPES.BUTTON}
                     onClick={() => {
                         setOpenDeleteModal(true);
                     }}
@@ -65,6 +66,7 @@ export const Menu = ({closeMenu, id}: MenuProps) => {
                             <Button
                                 className={styles.buttonConfirm}
                                 name='Confirm'
+                                type={BUTTON_TYPES.BUTTON}
                                 onClick={() => {
                                     deleteMovies(dispatch, id);
                                     setOpenDeleteModal(false);

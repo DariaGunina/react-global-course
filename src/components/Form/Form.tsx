@@ -16,15 +16,6 @@ export interface FormValues {
     id?: number;
 }
 
-export interface Errors {
-    title: string;
-    release_date?: string;
-    poster_path?: string;
-    genres?: string;
-    overview?: string;
-    runtime?: string;
-}
-
 interface FormProps {
     formValues: FormValues;
     onSubmit: (e) => void;
@@ -33,6 +24,19 @@ interface FormProps {
     titleID?: string;
     onClose: () => void;
 }
+
+const validate = (values) => {
+    return {
+        ...(!values.title && { title: "Title is required" }),
+        ...(!values.release_date && { release_date: "Date is required" }),
+        ...(!values.poster_path && { poster_path: "Movie url is required" }),
+        ...(!values.genres?.length && {
+            genres: "Select at least one genre is proceed"
+        }),
+        ...(!values.overview && { overview: "Overview is required" }),
+        ...(!values.runtime && { runtime: "Runtime is required" }),
+    };
+};
 
 export const Form = ({
     movieID,
@@ -48,34 +52,7 @@ export const Form = ({
             onSubmit(values);
             onClose();
         },
-        validate: values => {
-            let error = {} as Errors;
-            if(!values.title) {
-                error.title = 'Title is required'
-            }
-
-            if(!values.release_date) {
-                error.release_date = 'Date is required'
-            }
-
-            if(!values.poster_path) {
-                error.poster_path = 'Movie url is required'
-            }
-
-            if(!values.genres?.length) {
-                error.genres = 'Select at least one genre is proceed'
-            }
-
-            if(!values.overview) {
-                error.overview = 'Overview is required'
-            }
-
-            if(!values.runtime) {
-                error.runtime = 'Runtime is required'
-            }
-
-            return error
-        }
+        validate,
     });
 
     return(
@@ -89,7 +66,7 @@ export const Form = ({
                     placeholder='Title'
                     onChange={formik.handleChange}
                     value={formik.values.title}
-                    error={formik.errors.title}
+                    error={formik.errors.title as string}
                     type='text'
                 />
                 <InputField
@@ -98,7 +75,7 @@ export const Form = ({
                     placeholder='Select Date'
                     onChange={formik.handleChange}
                     value={formik.values.release_date}
-                    error={formik.errors.release_date}
+                    error={formik.errors.release_date as string}
                     type='date'
                 />
                 <InputField
@@ -107,7 +84,7 @@ export const Form = ({
                     placeholder='Movie URL here'
                     onChange={formik.handleChange}
                     value={formik.values.poster_path}
-                    error={formik.errors.poster_path}
+                    error={formik.errors.poster_path as string}
                     type='text'
                 />
                 <div className={styles.wrapper}>
@@ -131,7 +108,7 @@ export const Form = ({
                     placeholder='Overview here'
                     onChange={formik.handleChange}
                     value={formik.values.overview}
-                    error={formik.errors.overview}
+                    error={formik.errors.overview as string}
                     type='text'
                 />
                 <InputField
@@ -140,7 +117,7 @@ export const Form = ({
                     placeholder='Runtime here'
                     onChange={formik.handleChange}
                     value={formik.values.runtime}
-                    error={formik.errors.runtime}
+                    error={formik.errors.runtime as string}
                     type='number'
                 />
                 <div className={styles.buttonContainer}>

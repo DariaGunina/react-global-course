@@ -36,13 +36,13 @@ export const MultiSelect = ({values, name, error}) => {
                     { values?.length > 0 ? values?.join(', ') : 'Select Genre' }
                 </summary>
                 <div className={styles.options}>
-                    {OPTIONS.map(option =>
+                    {OPTIONS.map(({value, label}) =>
                         <CheckboxOption
                             name={name}
-                            key={option.value}
-                            value={option.value}
+                            key={value}
+                            value={value}
                         >
-                            {option.label}
+                            {label}
                         </CheckboxOption>
                     )}
                 </div>

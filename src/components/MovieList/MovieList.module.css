@@ -1,6 +1,24 @@
+.content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .list {
     display: grid;
     grid-template-rows: 1fr 1fr ;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-color-text);
+    font-size: 36px;
+    letter-spacing: 3px;
+    font-weight: 100;
+    text-transform: capitalize;
 }

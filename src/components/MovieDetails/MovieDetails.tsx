@@ -32,7 +32,7 @@ export const MovieDetails = ({
                 <p className={styles.tagline}>{tagline}</p>
                 <div className={styles.date}>
                     <span>{date}</span>
-                    <span>{runtime}</span>
+                    <span>{runtime} min</span>
                 </div>
                 <p className={styles.overview}>{overview}</p>
             </div>

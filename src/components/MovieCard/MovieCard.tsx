@@ -1,7 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import MenuIcon from '../../assets/menu.svg';
 import {Menu} from '../Menu';
-import {MovieContext} from '../MovieDetails';
 
 import styles from './MovieCard.module.css';
 
@@ -21,16 +21,16 @@ export const MovieCard = ({
     id
 }: MovieCardProps) => {
     const [openMenu, setOpenMenu] = React.useState(false);
-    const {setActiveMovie} = React.useContext(MovieContext);
 
     return (
         <div className={styles.image}>
-            <img
-                className={styles.card}
-                src={image}
-                onClick={() => setActiveMovie(id)}
-                alt='image'
-            />
+            <Link to={`/film/${id}`}>
+                <img
+                    className={styles.card}
+                    src={image}
+                    alt='image'
+                />
+            </Link>
             <div className={styles.info}>
                 <h1 className={styles.title}>{title}</h1>
                 <p className={styles.year}>{year}</p>

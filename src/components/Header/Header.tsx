@@ -34,6 +34,8 @@ export const Header = () => {
         history.push('/');
     };
 
+    const onClose = () => setIsOpenModal(false);
+
     return (
         <header className={styles.header} style={BackgroundStyle}>
             <div className={styles.content}>
@@ -52,7 +54,7 @@ export const Header = () => {
                         <>
                             <h1 className={styles.title}>Add Movie</h1>
                             <React.Suspense fallback='loading...'>
-                                <AddMovieForm onClose={() => setIsOpenModal(false)} />
+                                <AddMovieForm onClose={onClose} />
                             </React.Suspense>
                         </>
                     </Modal>

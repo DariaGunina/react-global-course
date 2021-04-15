@@ -18,7 +18,7 @@ export const MovieList = ({moviesList}: MoviesListProps) => {
                                 image={movie.poster_path}
                                 title={movie.title}
                                 subtitle={movie.tagline}
-                                year={String(new Date(movie.release_date).getFullYear())}
+                                year={`${new Date(movie.release_date).getFullYear()}`}
                                 key={movie.id}
                                 id={movie.id}
                             />

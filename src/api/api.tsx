@@ -19,11 +19,11 @@ export const getMoviesRequest = async ({
     let url = `${BASE_URL}?sortOrder=asc&search=${search ?? ''}&searchBy=title`;
 
     if(sort) {
-        url = url+`&sortBy=${sort}`
+        url += `&sortBy=${sort}`
     }
 
     if(filter && filter !== FilterKeys.ALL) {
-        url = url+`&filter=${filter}`
+        url += `&filter=${filter}`
     }
 
     const result = await fetch(url);
@@ -52,7 +52,7 @@ export const createMovieRequest = async ({
         poster_path,
         genres,
         overview,
-        runtime: Number(runtime),
+        runtime,
     });
 
     const result = await fetch(BASE_URL, {

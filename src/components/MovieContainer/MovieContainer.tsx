@@ -40,12 +40,9 @@ export const MovieContainer = ({
                 clearMovies(dispatch);
                 break;
             case Mode.SEARCH:
-                getMovies(dispatch, {filter, sort, search: Search ?? search});
-                break;
             case Mode.DETAILS:
                 getMovies(dispatch, {filter, sort, search: Search ?? search});
                 break;
-
         }
 
     }, [sort, filter, Search, mode]);

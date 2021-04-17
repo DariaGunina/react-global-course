@@ -1,5 +1,6 @@
 import {Movie} from './types';
 import {
+    CLEAR_MOVIES,
     CREATE_MOVIES,
     DELETE_MOVIES,
     GET_MOVIES,
@@ -42,6 +43,11 @@ export const MovieReducer = (state = initialState, action: ActionType): MovieSta
             return {
                 ...state,
                 moviesList: deleteItem(state.moviesList, action.payload),
+            };
+        case CLEAR_MOVIES:
+            return {
+                ...state,
+                moviesList: [],
             };
         default:
             return state;

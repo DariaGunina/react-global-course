@@ -11,7 +11,8 @@ interface SearchBlockProps {
 
 export const SearchBlock = ({
     onSearch,
-    value, setValue
+    value,
+    setValue
 }: SearchBlockProps) => {
     return (
         <div className={styles.searchBlock}>

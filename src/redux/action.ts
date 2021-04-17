@@ -1,6 +1,13 @@
 import {Dispatch} from 'redux';
 import {FormValues} from '../components/Form/Form';
 import {
+    createMovieRequest,
+    deleteMovieRequest,
+    getMoviesRequest,
+    updateMovieRequest
+} from '../api';
+import {
+    CLEAR_MOVIES,
     CREATE_MOVIES,
     DELETE_MOVIES,
     GET_MOVIES,
@@ -17,30 +24,12 @@ interface Params {
     search?: string;
 }
 
-const headers = {'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest'};
-
 export const getMovies = (dispatch: Dispatch, {
     filter,
     sort,
     search
 }: Params) => {
-    let url = `http://localhost:4000/movies?sortOrder=asc`;
-
-    if(sort) {
-        url = url+`&sortBy=${sort}`
-    }
-
-    if(filter && filter !== FilterKeys.ALL) {
-        url = url+`&filter=${filter}`
-    }
-
-    if(search) {
-        url = url+`&search=${search}&searchBy=title`
-    }
-
-    fetch(url)
-        .then(res => res.json())
-        .then(
+    getMoviesRequest({filter, sort, search}).then(
             (result) => {
                dispatch({
                    type: GET_MOVIES,
@@ -58,22 +47,14 @@ export const createMovies = (dispatch: Dispatch, {
     overview,
     runtime
 }: FormValues) => {
-    let url = `http://localhost:4000/movies`;
-    const data = JSON.stringify({
+    createMovieRequest({
         title,
         release_date,
         poster_path,
         genres,
         overview,
-        runtime: Number(runtime),
-    });
-    fetch(url, {
-        method: 'POST',
-        headers,
-        body: data,
-    })
-        .then(res => res.json())
-        .then(
+        runtime
+    }).then(
             (result) => {
                 dispatch({
                     type: CREATE_MOVIES,
@@ -92,8 +73,7 @@ export const updateMovie = (dispatch: Dispatch, {
     runtime,
     id
 }: FormValues) => {
-    let url = `http://localhost:4000/movies`;
-    const data = JSON.stringify({
+    updateMovieRequest({
         title,
         release_date,
         poster_path,
@@ -101,15 +81,7 @@ export const updateMovie = (dispatch: Dispatch, {
         overview,
         runtime,
         id,
-    });
-
-    fetch(url, {
-        method: 'PUT',
-        headers,
-        body: data,
-    })
-        .then(res => res.json())
-        .then(
+    }).then(
             (result) => {
                 dispatch({
                     type: UPDATE_MOVIES,
@@ -120,13 +92,14 @@ export const updateMovie = (dispatch: Dispatch, {
 };
 
 export const deleteMovies = (dispatch: Dispatch, id) => {
-    let url = `http://localhost:4000/movies/${id}`;
-
-    fetch(url, {
-        method: 'DELETE'
-    })
-        .then(() => dispatch({
+    deleteMovieRequest(id).then(() => dispatch({
             type: DELETE_MOVIES,
             payload: id,
         }));
+};
+
+export const clearMovies = (dispatch: Dispatch) => {
+    dispatch({
+            type: CLEAR_MOVIES
+        });
 };

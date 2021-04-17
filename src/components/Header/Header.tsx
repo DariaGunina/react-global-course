@@ -1,16 +1,12 @@
 import React from 'react';
+import {useHistory} from 'react-router';
+import {useDispatch} from 'react-redux';
 import {Logo} from '../Logo';
 import {Button, BUTTON_TYPES} from '../Button';
 import {SearchBlock} from '../SearchBlock';
 import {Modal} from '../Modal';
-import {MovieContext} from '../MovieDetails';
-import {MovieDetails} from '../MovieDetails';
 import Background from '../../assets/image.jpg';
-import SearchIcon from '../../assets/search.svg';
-import {useDispatch, useSelector} from 'react-redux';
-import {RootReducer} from '../../store';
-import {MovieState} from '../../redux/reducer';
-import {getMovies} from '../../redux/action';
+import {clearMovies} from '../../redux/action';
 import {useNonNullContext} from '../../hooks/useNonNullContext';
 import {FiltersContext} from '../MovieContainer/FiltersProvider';
 
@@ -20,64 +16,51 @@ import styles from './Header.module.css';
 
 const BackgroundStyle = {
     backgroundImage: `url(${Background})`,
-    backgroundSize: 'cover'
+    backgroundSize: 'cover',
 };
 
 export const Header = () => {
-    const dispatch = useDispatch();
-    const {search, setSearch, sort, filter} = useNonNullContext(FiltersContext);
-
-    const onSearch = () => getMovies(dispatch, {search, sort, filter});
-
     const [isOpenModal, setIsOpenModal] = React.useState(false);
-    const {activeMovie, setActiveMovie} = React.useContext(MovieContext);
-    const {moviesList} = useSelector<RootReducer, MovieState>((state) => state.movies);
+    const {search, setSearch} = useNonNullContext(FiltersContext);
 
-    const movieById = React.useMemo(() => {
-       return moviesList.find(item => item.id === activeMovie);
-    },[activeMovie]);
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const onSearch = () => {
+        history.push(`/search/${search}`);
+    };
+
+    const goBackToHome = () => {
+        history.push('/');
+    };
+
+    const onClose = () => setIsOpenModal(false);
 
     return (
         <header className={styles.header} style={BackgroundStyle}>
             <div className={styles.content}>
-                <Logo onClick={() => setActiveMovie(null)} />
-                {
-                    activeMovie ?
-                        <SearchIcon
-                            className={styles.search}
-                            onClick={() => setActiveMovie(null)}
-                        /> :
+                <Logo onClick={() => {
+                    clearMovies(dispatch);
+                    goBackToHome();
+                }} />
+                <>
+                    <Button
+                        className={styles.button}
+                        name='+ Add Movie'
+                        onClick={() => setIsOpenModal(true)}
+                        type={BUTTON_TYPES.BUTTON}
+                    />
+                    <Modal open={isOpenModal} onClose={() => setIsOpenModal(false)}>
                         <>
-                            <Button
-                                className={styles.button}
-                                name='+ Add Movie'
-                                onClick={() => setIsOpenModal(true)}
-                                type={BUTTON_TYPES.BUTTON}
-                            />
-                            <Modal open={isOpenModal} onClose={() => setIsOpenModal(false)}>
-                                <>
-                                    <h1 className={styles.title}>Add Movie</h1>
-                                    <React.Suspense fallback='loading...'>
-                                        <AddMovieForm onClose={() => setIsOpenModal(false)} />
-                                    </React.Suspense>
-                                </>
-                            </Modal>
+                            <h1 className={styles.title}>Add Movie</h1>
+                            <React.Suspense fallback='loading...'>
+                                <AddMovieForm onClose={onClose} />
+                            </React.Suspense>
                         </>
-                }
+                    </Modal>
+                </>
             </div>
-            {
-                activeMovie && movieById
-                    ? <MovieDetails
-                        title={movieById.title}
-                        runtime={movieById.runtime}
-                        overview={movieById.overview}
-                        date={movieById.release_date}
-                        vote={movieById.vote_average}
-                        poster={movieById.poster_path}
-                        tagline={movieById.tagline}
-                        />
-                    : <SearchBlock onSearch={onSearch} value={search} setValue={e => setSearch(e.target.value)} />
-            }
+            <SearchBlock onSearch={onSearch} value={search} setValue={e => {setSearch(e.target.value)}} />
         </header>
     );
 };

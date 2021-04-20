@@ -11,7 +11,6 @@ const setupComponent = (render: Function) => {
 
     return {
         wrapper,
-        instance: wrapper.instance(),
         props: computedProps,
     };
 };

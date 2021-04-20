@@ -3,7 +3,7 @@ import { sortOptions } from '../../redux/enums';
 
 import styles from './FilterBar.module.css';
 
-interface FilterBarProps {
+export interface FilterBarProps {
     onChange: (e: any) => void;
 }
 

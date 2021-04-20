@@ -28,7 +28,7 @@ export const EditMovieForm = ({id, onClose}: EditMovieFormProps) => {
                 runtime: currentMovie?.runtime,
                 id: currentMovie?.id,
             }}
-            onSubmit={(values) => updateMovie(dispatch, {
+            onSubmit={(values) => updateMovie({
                 title: values.title,
                 release_date: values.release_date,
                 poster_path: values.poster_path,
@@ -36,7 +36,7 @@ export const EditMovieForm = ({id, onClose}: EditMovieFormProps) => {
                 overview: values.overview,
                 runtime: values.runtime,
                 id: values.id,
-            })}
+            })(dispatch)}
             buttonName='Save'
             onClose={onClose}
             movieID={id}

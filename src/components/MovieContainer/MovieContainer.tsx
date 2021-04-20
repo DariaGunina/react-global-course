@@ -37,11 +37,11 @@ export const MovieContainer = ({
     React.useEffect(() => {
         switch (mode) {
             case Mode.HOME:
-                clearMovies(dispatch);
+                clearMovies()(dispatch);
                 break;
             case Mode.SEARCH:
             case Mode.DETAILS:
-                getMovies(dispatch, {filter, sort, search: Search ?? search});
+                getMovies({filter, sort, search: Search ?? search})(dispatch);
                 break;
         }
 

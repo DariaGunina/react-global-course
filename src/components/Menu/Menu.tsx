@@ -68,7 +68,7 @@ export const Menu = ({closeMenu, id}: MenuProps) => {
                                 name='Confirm'
                                 type={BUTTON_TYPES.BUTTON}
                                 onClick={() => {
-                                    deleteMovies(dispatch, id);
+                                    deleteMovies(id)(dispatch);
                                     setOpenDeleteModal(false);
                                 }}
                             />

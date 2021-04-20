@@ -6,7 +6,7 @@ import {
 } from './Form';
 import {createMovies} from '../../redux/action';
 
-interface AddMovieFormProps {
+export interface AddMovieFormProps {
     onClose: () => void;
 }
 
@@ -19,7 +19,6 @@ export const AddMovieForm = ({onClose}: AddMovieFormProps) => {
             onClose={onClose}
             onSubmit={(values) => {
                 createMovies(
-                    dispatch,
                     {
                         title: values.title,
                         release_date: values.release_date,
@@ -28,7 +27,7 @@ export const AddMovieForm = ({onClose}: AddMovieFormProps) => {
                         overview: values.overview,
                         runtime: values.runtime
                     }
-                )
+                )(dispatch)
             }}
         />
     );

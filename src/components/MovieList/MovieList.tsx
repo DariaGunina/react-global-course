@@ -1,7 +1,7 @@
 import React from 'react';
 import {MovieCard} from '../MovieCard';
 import styles from './MovieList.module.css';
-import {Movie} from "../../redux/types";
+import {Movie} from '../../redux/types';
 
 interface MoviesListProps {
     moviesList: Movie[]

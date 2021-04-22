@@ -3,7 +3,7 @@ import {Button, BUTTON_TYPES} from '../Button';
 
 import styles from './SearchBlock.module.css';
 
-interface SearchBlockProps {
+export interface SearchBlockProps {
     onSearch: (e) => void;
     value: string;
     setValue: (e) => void;

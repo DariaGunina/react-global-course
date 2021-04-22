@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './MovieDetails.module.css';
 
-interface MovieDetailsProps {
+export interface MovieDetailsProps {
     poster: string;
     title: string;
     tagline: string;

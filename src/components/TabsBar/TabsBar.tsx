@@ -5,7 +5,7 @@ import {FilterKeys, FilterOptions} from '../../redux/enums';
 
 import styles from './TabsBar.module.css';
 
-interface TabsBarProps {
+export interface TabsBarProps {
     onSort: (e: any) => void;
     onFilter: (e: any) => void;
     filter: FilterKeys;

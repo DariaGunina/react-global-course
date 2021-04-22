@@ -7,7 +7,7 @@ import {RootReducer} from '../../store';
 import {MovieState} from '../../redux/reducer';
 import {updateMovie} from '../../redux/action';
 
-interface EditMovieFormProps {
+export interface EditMovieFormProps {
     id: number;
     onClose: () => void;
 }

@@ -18,7 +18,7 @@ const setupComponent = (render: Function, props: {} = {}) => {
     };
 };
 
-describe('InputField,', () => {
+describe('InputField', () => {
     describe('basic render', () => {
         it('should render', () => {
             const {wrapper} = setupComponent(shallow);

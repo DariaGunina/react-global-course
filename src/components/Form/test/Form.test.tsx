@@ -8,7 +8,7 @@ test('rendering and submitting a basic Formik form', async () => {
   const handleClose = jest.fn();
   const props = {
       onClose: handleClose,
-      onSubmit:handleSubmit,
+      onSubmit: handleSubmit,
       buttonName: 'test',
       formValues: {},
   };
@@ -28,6 +28,12 @@ test('rendering and submitting a basic Formik form', async () => {
    userEvent.click(screen.getByTestId('buttonSubmit'));
 
    await waitFor(() =>
-       expect(handleSubmit).toHaveBeenCalled()
-   )
+       expect(handleSubmit).toHaveBeenCalledWith({
+        title: 'Test',
+        release_date: '2020-03-01',
+        poster_path: 'Url',
+        overview: 'Test',
+        genres: ['Horror'],
+        runtime: 60,
+    }));
 });

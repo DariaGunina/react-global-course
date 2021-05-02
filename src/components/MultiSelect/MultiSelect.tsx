@@ -8,9 +8,10 @@ interface Props {
     name: string
     value: any;
     children: React.ReactNode;
+    testId?: string;
 }
 
-export const CheckboxOption = ({name, value, children}: Props) => {
+export const CheckboxOption = ({name, value, children, testId}: Props) => {
     return (
         <label>
             <Field
@@ -18,13 +19,14 @@ export const CheckboxOption = ({name, value, children}: Props) => {
                 type='checkbox'
                 value={value}
                 className={styles.checkbox}
+                data-testid={testId}
             />
             {children}
         </label>
     );
 };
 
-export const MultiSelect = ({values, name, error}) => {
+export const MultiSelect = ({values, name, error, testId}) => {
 
     return (
         <>
@@ -32,6 +34,7 @@ export const MultiSelect = ({values, name, error}) => {
                 <summary
                     className={styles.multiSelect}
                     style={{ border: error ? '2px solid var(--bright-color)' : '' }}
+                    data-testid={testId}
                 >
                     { values?.length > 0 ? values?.join(', ') : 'Select Genre' }
                 </summary>
@@ -41,6 +44,7 @@ export const MultiSelect = ({values, name, error}) => {
                             name={name}
                             key={value}
                             value={value}
+                            testId={`genre-${value}`}
                         >
                             {label}
                         </CheckboxOption>

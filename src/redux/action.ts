@@ -24,11 +24,11 @@ interface Params {
     search?: string;
 }
 
-export const getMovies = (dispatch: Dispatch, {
+export const getMovies = ({
     filter,
     sort,
-    search
-}: Params) => {
+    search,
+}: Params) => (dispatch: Dispatch) => {
     getMoviesRequest({filter, sort, search}).then(
             (result) => {
                dispatch({
@@ -39,14 +39,14 @@ export const getMovies = (dispatch: Dispatch, {
         );
 };
 
-export const createMovies = (dispatch: Dispatch, {
+export const createMovies = ({
     title,
     release_date,
     poster_path,
     genres,
     overview,
     runtime
-}: FormValues) => {
+}: FormValues) => (dispatch: Dispatch) => {
     createMovieRequest({
         title,
         release_date,
@@ -64,7 +64,7 @@ export const createMovies = (dispatch: Dispatch, {
         );
 };
 
-export const updateMovie = (dispatch: Dispatch, {
+export const updateMovie = ({
     title,
     release_date,
     poster_path,
@@ -72,7 +72,7 @@ export const updateMovie = (dispatch: Dispatch, {
     overview,
     runtime,
     id
-}: FormValues) => {
+}: FormValues) => (dispatch: Dispatch) => {
     updateMovieRequest({
         title,
         release_date,
@@ -91,14 +91,14 @@ export const updateMovie = (dispatch: Dispatch, {
         );
 };
 
-export const deleteMovies = (dispatch: Dispatch, id) => {
+export const deleteMovies = (id) => (dispatch: Dispatch) => {
     deleteMovieRequest(id).then(() => dispatch({
             type: DELETE_MOVIES,
             payload: id,
         }));
 };
 
-export const clearMovies = (dispatch: Dispatch) => {
+export const clearMovies = () => (dispatch: Dispatch) => {
     dispatch({
             type: CLEAR_MOVIES
         });

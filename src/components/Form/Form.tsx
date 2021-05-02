@@ -16,7 +16,7 @@ export interface FormValues {
     id?: number;
 }
 
-interface FormProps {
+export interface FormProps {
     formValues: FormValues;
     onSubmit: (e) => void;
     buttonName: string;
@@ -94,6 +94,7 @@ export const Form = ({
                             error={formik.errors.genres}
                             name='genres'
                             values={formik.values.genres}
+                            testId='genres'
                         />
                      </label>
                     {
@@ -131,6 +132,7 @@ export const Form = ({
                         className={styles.buttonSubmit}
                         type={BUTTON_TYPES.SUBMIT}
                         name={buttonName}
+                        testId="buttonSubmit"
                     />
                 </div>
             </FormikProvider>

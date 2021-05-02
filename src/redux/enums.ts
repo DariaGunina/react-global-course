@@ -1,4 +1,4 @@
-export const enum FilterKeys {
+export enum FilterKeys {
     ALL = 'all',
     DOCUMENTARY = 'documentary',
     COMEDY = 'comedy',
@@ -14,7 +14,7 @@ export const FilterOptions = {
     [FilterKeys.CRIME]: 'Crime',
 };
 
-export const enum SortKeys {
+export enum SortKeys {
     VOTE_AVERAGE = 'vote_average',
     VOTE_COUNT = 'vote_count',
     RELEASE_DATE = 'release_date',

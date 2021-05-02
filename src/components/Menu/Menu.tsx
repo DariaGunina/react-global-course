@@ -4,11 +4,12 @@ import CloseIcon from '../../assets/cancel.svg';
 import {Button, BUTTON_TYPES} from '../Button';
 import {Modal} from '../Modal';
 import {deleteMovies} from '../../redux/action';
+
 import styles from './Menu.module.css';
 
 const EditMovieForm = React.lazy(() => import('../Form/EditMovieForm'));
 
-interface MenuProps {
+export interface MenuProps {
     closeMenu: () => void;
     className?: string;
     id: number;
@@ -35,15 +36,21 @@ export const Menu = ({closeMenu, id}: MenuProps) => {
                     name='Edit'
                     onClick={() => setOpenEditModal(true)}
                     type={BUTTON_TYPES.BUTTON}
+                    data-test="edit-button"
                 />
                 <Modal
                     open={openEditModal}
                     onClose={() => onCloseModal(() => setOpenEditModal(false))}
+                    data-test="edit-modal"
                 >
                     <>
                         <h1 className={styles.title}>Edit Movie</h1>
                         <React.Suspense fallback='loading...'>
-                            <EditMovieForm onClose={() => onCloseModal(() => setOpenEditModal(false))} id={id} />
+                            <EditMovieForm
+                                onClose={() => onCloseModal(() => setOpenEditModal(false))}
+                                id={id}
+                                data-test='edit'
+                            />
                         </React.Suspense >
                     </>
                 </Modal>
@@ -54,10 +61,12 @@ export const Menu = ({closeMenu, id}: MenuProps) => {
                     onClick={() => {
                         setOpenDeleteModal(true);
                     }}
+                    data-test="delete-button"
                 />
                 <Modal
                     open={openDeleteModal}
                     onClose={() => onCloseModal(() => setOpenDeleteModal(false))}
+                    data-test="delete-modal"
                 >
                     <div className={styles.content}>
                         <h1 className={styles.title}>Delete Movie</h1>
@@ -68,9 +77,10 @@ export const Menu = ({closeMenu, id}: MenuProps) => {
                                 name='Confirm'
                                 type={BUTTON_TYPES.BUTTON}
                                 onClick={() => {
-                                    deleteMovies(dispatch, id);
+                                    deleteMovies(id)(dispatch);
                                     setOpenDeleteModal(false);
                                 }}
+                                data-test="confirm-button"
                             />
                         </div>
                     </div>

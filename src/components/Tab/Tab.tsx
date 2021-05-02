@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './Tab.module.css';
 
-interface TabProps {
+export interface TabProps {
     label: string;
     value: string;
     onChange: (e) => void;

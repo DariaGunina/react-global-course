@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './Form.module.css';
 
-interface InputFieldProps {
+export interface InputFieldProps {
     label: string;
     type?: string;
     placeholder?: string;

@@ -9,7 +9,7 @@ import {
 
 const initialState = { moviesList: [] as Movie[] };
 
-interface ActionType {
+export interface ActionType {
     type: string;
     payload: Movie[];
 }
@@ -21,7 +21,9 @@ export interface MovieState {
 export const MovieReducer = (state = initialState, action: ActionType): MovieState => {
     const deleteItem = (list, id) => list.filter((movie) => movie.id !== id);
 
-    const editItem = (list, editedMovie) => list.map(item => item.id === editedMovie.id ? editedMovie : item);
+    const editItem = (list, editedMovie) => {
+        return list.map(item => item.id === editedMovie.id ? editedMovie : item)
+    };
 
     switch (action.type) {
         case GET_MOVIES:

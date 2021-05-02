@@ -2,11 +2,11 @@ import React from 'react';
 
 import styles from './Counter.module.css';
 
-interface CountProps {
+export interface CounterProps {
     count: number;
 }
 
-export const Counter = ({count}: CountProps) => {
+export const Counter = ({count}: CounterProps) => {
     return (
         <div className={styles.counter}>
             {count}

@@ -40,7 +40,7 @@ export const Header = () => {
         <header className={styles.header} style={BackgroundStyle}>
             <div className={styles.content}>
                 <Logo onClick={() => {
-                    clearMovies(dispatch);
+                    clearMovies()(dispatch);
                     goBackToHome();
                 }} />
                 <>

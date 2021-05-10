@@ -17,12 +17,22 @@ import {
     FilterKeys,
     SortKeys
 } from './enums';
+import {Movie} from './types';
 
 interface Params {
     filter?: FilterKeys;
     sort?: SortKeys;
     search?: string;
 }
+
+export const dispatchMovies = (
+    data: Movie[]
+) => (dispatch: Dispatch) => {
+    dispatch({
+        type: GET_MOVIES,
+        payload: data,
+    });
+};
 
 export const getMovies = ({
     filter,

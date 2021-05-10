@@ -36,7 +36,7 @@
     font-size: 16px;
     font-weight: 100;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     cursor: pointer;
 }
 
@@ -75,4 +75,7 @@
     color: var(--main-color-text);
     text-transform: uppercase;
     margin-right: 30px;
+    border: none;
+    font-size: 16px;
+    letter-spacing: 1px;
 }

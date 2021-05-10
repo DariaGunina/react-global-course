@@ -1,0 +1,17 @@
+.header {
+    width: 100%;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-bottom: 10px solid var(--desaturated-color);
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}

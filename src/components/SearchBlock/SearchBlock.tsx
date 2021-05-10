@@ -1,10 +1,10 @@
 import React from 'react';
-import {Button, BUTTON_TYPES} from '../Button';
+import Link from 'next/link';
 
 import styles from './SearchBlock.module.css';
 
 export interface SearchBlockProps {
-    onSearch: (e) => void;
+    onSearch: string;
     value: string;
     setValue: (e) => void;
 }
@@ -12,7 +12,7 @@ export interface SearchBlockProps {
 export const SearchBlock = ({
     onSearch,
     value,
-    setValue
+    setValue,
 }: SearchBlockProps) => {
     return (
         <div className={styles.searchBlock}>
@@ -24,12 +24,9 @@ export const SearchBlock = ({
                 type='text'
                 placeholder='What do you want to watch?'
             />
-            <Button
-                className={styles.button}
-                name='Search'
-                type={BUTTON_TYPES.BUTTON}
-                onClick={onSearch}
-            />
+            <Link href={onSearch}>
+                <a className={styles.search}>Search</a>
+            </Link>
         </div>
     );
 };

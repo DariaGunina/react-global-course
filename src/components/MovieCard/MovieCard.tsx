@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import Link from 'next/link';
 import MenuIcon from '../../assets/menu.svg';
 import {Menu} from '../Menu';
 
@@ -24,7 +24,7 @@ export const MovieCard = ({
 
     return (
         <div className={styles.image}>
-            <Link to={`/film/${id}`}>
+            <Link href={`/film/[idFilm]`} as={`/film/${id}`}>
                 <img
                     className={styles.card}
                     src={image}
@@ -36,10 +36,7 @@ export const MovieCard = ({
                 <p className={styles.year}>{year}</p>
             </div>
             <p className={styles.subtitle}>{subtitle}</p>
-            <MenuIcon
-                onClick={() => setOpenMenu(true)}
-                className={styles.menuIcon}
-            />
+            <img src={MenuIcon}  onClick={() => setOpenMenu(true)} className={styles.menuIcon} alt="image"/>
             {
                 openMenu &&
                 <Menu

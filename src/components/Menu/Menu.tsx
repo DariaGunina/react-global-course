@@ -2,8 +2,8 @@ import React from 'react';
 import {useDispatch} from 'react-redux';
 import CloseIcon from '../../assets/cancel.svg';
 import {Button, BUTTON_TYPES} from '../Button';
-import {Modal} from '../Modal';
 import {deleteMovies} from '../../redux/action';
+import Modal from '../Modal/Modal';
 
 import styles from './Menu.module.css';
 
@@ -28,7 +28,7 @@ export const Menu = ({closeMenu, id}: MenuProps) => {
     return (
         <div className={styles.menu}>
             <div className={styles.iconContent}>
-                <CloseIcon onClick={closeMenu} className={styles.icon} />
+                <img src={CloseIcon} onClick={closeMenu} className={styles.icon} alt="image"/>
             </div>
             <div className={styles.buttons}>
                 <Button

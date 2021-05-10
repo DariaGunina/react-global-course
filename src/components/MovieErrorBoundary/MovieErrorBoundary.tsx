@@ -4,8 +4,8 @@ import styles from './MovieErrorBoundary.module.css';
 
 export class MovieErrorBoundary extends React.Component<any, any> {
     constructor(props) {
-        super(props)
-        this.state = { hasError: false }
+        super(props);
+        this.state = { hasError: false };
     }
     static getDerivedStateFromError() {
         return { hasError: true };
@@ -22,4 +22,4 @@ export class MovieErrorBoundary extends React.Component<any, any> {
             return this.props.children;
         }
     };
-};
+}

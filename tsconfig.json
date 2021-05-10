@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "jsx": "react",
+    "jsx": "preserve",
     "module": "commonjs",
     "target": "es5",
     "outDir": "./dist",
@@ -12,9 +12,29 @@
     "noImplicitAny": false,
     "noImplicitThis": false,
     "strictFunctionTypes": false,
-    "typeRoots" : ["node_modules/@types", "src/types"]
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types"
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
   "exclude": [
     "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
   ]
 }

@@ -19,6 +19,10 @@ jest.mock('../Modal', () => ({
     Modal: () => <></>,
 }));
 
+jest.mock('../Modal/ModalPortal', () => ({
+    ModalPortal: () => <></>,
+}));
+
 jest.mock('../Form/EditMovieForm',()=>({
     EditMovieForm: () => <></>,
 }));

@@ -1,32 +1,35 @@
 import React from 'react';
+import ModalPortal from './ModalPortal';
 import CancelIcon from '../../assets/cancel.svg';
-import ReactDom from 'react-dom';
 
 import styles from './Modal.module.css';
 
 interface ModalProps {
-    children?: React.ReactNode;
+    children?: JSX.Element;
     open: boolean;
     onClose: () => void;
 }
 
-export const Modal: React.FC<ModalProps> = ({
+const Modal = ({
     open,
     children,
     onClose,
-}) => {
+}: ModalProps) => {
     if(!open) return null
 
-    return ReactDom.createPortal(
-        <div className={styles.wrapper}>
-            <div className={styles.overlay} onClick={onClose}/>
-            <div className={styles.modal}>
-                <div className={styles.wrapperIcon}>
-                    <CancelIcon className={styles.icon} onClick={onClose} />
+    return (
+        <ModalPortal selector="#modal">
+            <div className={styles.wrapper}>
+                <div className={styles.overlay} onClick={onClose}/>
+                <div className={styles.modal}>
+                    <div className={styles.wrapperIcon}>
+                        <img src={CancelIcon} className={styles.icon} onClick={onClose} alt="image" />
+                    </div>
+                    {children}
                 </div>
-                {children}
             </div>
-        </div>,
-        document.getElementById('portal') as HTMLElement
-    );
+        </ModalPortal>
+    )
 };
+
+export default Modal;

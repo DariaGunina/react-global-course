@@ -20,7 +20,7 @@
     margin: 10px;
 }
 
-details {
+.details {
     color: var(--accent-dark-color);;
     text-transform: none;
 }

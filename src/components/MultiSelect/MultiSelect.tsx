@@ -30,7 +30,7 @@ export const MultiSelect = ({values, name, error, testId}) => {
 
     return (
         <>
-            <details>
+            <details className={styles.details}>
                 <summary
                     className={styles.multiSelect}
                     style={{ border: error ? '2px solid var(--bright-color)' : '' }}

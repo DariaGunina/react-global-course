@@ -1,6 +1,7 @@
 .logo {
     color: var(--bright-color);
     font-size: 24px;
+    cursor: pointer;
 }
 
 .additionalColor {

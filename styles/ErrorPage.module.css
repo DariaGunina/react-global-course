@@ -23,9 +23,11 @@
     fill: var(--bright-color);
 }
 
-.button {
+.link {
     border: 1px solid var(--bright-color);
     color: var(--bright-color);
     background-color: var(--main-color);
     padding: 20px 40px;
+    cursor: pointer;
+    text-decoration: none;
 }

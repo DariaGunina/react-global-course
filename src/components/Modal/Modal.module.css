@@ -46,4 +46,5 @@
     fill: var(--main-color-text);
     width: 20px;
     height: 20px;
+    cursor: pointer;
 }

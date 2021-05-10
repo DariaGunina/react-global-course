@@ -1,14 +1,14 @@
 import React from 'react';
-import {useHistory} from 'react-router';
 import {useDispatch} from 'react-redux';
+import Link from 'next/link';
 import {Logo} from '../Logo';
 import {Button, BUTTON_TYPES} from '../Button';
 import {SearchBlock} from '../SearchBlock';
-import {Modal} from '../Modal';
 import Background from '../../assets/image.jpg';
 import {clearMovies} from '../../redux/action';
 import {useNonNullContext} from '../../hooks/useNonNullContext';
 import {FiltersContext} from '../MovieContainer/FiltersProvider';
+import {Modal} from '../Modal';
 
 const AddMovieForm = React.lazy(() => import('../Form/AddMovieForm'));
 
@@ -21,28 +21,20 @@ const BackgroundStyle = {
 
 export const Header = () => {
     const [isOpenModal, setIsOpenModal] = React.useState(false);
-    const {search, setSearch} = useNonNullContext(FiltersContext);
-
-    const history = useHistory();
+    const {search, setSearch, filter, sort} = useNonNullContext(FiltersContext);
     const dispatch = useDispatch();
 
-    const onSearch = () => {
-        history.push(`/search/${search}`);
-    };
-
-    const goBackToHome = () => {
-        history.push('/');
-    };
-
     const onClose = () => setIsOpenModal(false);
+    const handleSearch = search !== '' ? `/search/${search}?sortBy=${sort}&filter=${filter}` : '/';
 
     return (
         <header className={styles.header} style={BackgroundStyle}>
             <div className={styles.content}>
-                <Logo onClick={() => {
-                    clearMovies()(dispatch);
-                    goBackToHome();
-                }} />
+                <Link href='/'>
+                    <Logo onClick={() => {
+                        clearMovies()(dispatch);
+                    }} />
+                </Link>
                 <>
                     <Button
                         className={styles.button}
@@ -60,7 +52,7 @@ export const Header = () => {
                     </Modal>
                 </>
             </div>
-            <SearchBlock onSearch={onSearch} value={search} setValue={e => {setSearch(e.target.value)}} />
+            <SearchBlock onSearch={handleSearch} value={search} setValue={e => {setSearch(e.target.value)}} />
         </header>
     );
 };

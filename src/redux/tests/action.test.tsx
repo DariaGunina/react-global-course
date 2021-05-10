@@ -4,7 +4,7 @@ import configureMockStore from 'redux-mock-store'
 import {
     clearMovies,
     createMovies,
-    deleteMovies,
+    deleteMovies, dispatchMovies,
     getMovies,
     updateMovie
 } from '../action';
@@ -43,14 +43,29 @@ describe('action', () => {
             const expectedActions = [
                 {
                     type: GET_MOVIES,
-                    payload: mockData
+                    payload: mockData,
                 },
             ];
 
             const store = mockStore<MovieState>({'moviesList': []});
             await store.dispatch(getMovies({search: ''}));
-            expect(store.getActions()).toEqual(expectedActions);
 
+            expect(store.getActions()).toEqual(expectedActions);
+        });
+    });
+
+    describe('on dispatchMovies action', () => {
+        it('should return dispatchMovies action', async () => {
+            const expectedActions = [
+                {
+                    type: GET_MOVIES,
+                    payload: mockData,
+                }
+            ];
+
+            const store = mockStore<MovieState>({'moviesList': []});
+            await store.dispatch(dispatchMovies(mockData));
+            expect(store.getActions()).toEqual(expectedActions);
         });
     });
 

@@ -1,14 +1,14 @@
 import React from 'react';
-import {Header} from "../../src/components/Header";
-import {MovieContainer} from "../../src/components/MovieContainer";
-import {Footer} from "../../src/components/Footer";
-import {getMoviesRequest} from "../../src/api";
+import {Header} from '../../src/components/Header';
+import {MovieContainer} from '../../src/components/MovieContainer';
+import {Footer} from '../../src/components/Footer';
+import {getMoviesRequest} from '../../src/api';
 
-const SearchPage = ({data}) => {
+const SearchPage = ({movies}) => {
     return (
         <>
             <Header/>
-            <MovieContainer data={data.data} />
+            <MovieContainer data={movies.data} />
             <Footer/>
         </>
     );
@@ -16,9 +16,9 @@ const SearchPage = ({data}) => {
 
 export async function getServerSideProps(context) {
     const query = context.query;
-    const data = await getMoviesRequest({filter: query.filter, search: query.id, sort: query.sortBy});
+    const movies = await getMoviesRequest({filter: query.filter, search: query.id, sort: query.sortBy});
 
-    return {props: {data}}
+    return {props: {movies}}
 }
 
 export default SearchPage;

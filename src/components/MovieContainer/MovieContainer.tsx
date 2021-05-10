@@ -13,12 +13,6 @@ import {FiltersContext} from './FiltersProvider';
 
 import styles from './MovieContainer.module.css';
 
-export enum Mode {
-    HOME,
-    SEARCH,
-    DETAILS
-}
-
 interface MovieContainerProps {
     data: Movie[];
 }
